@@ -12,12 +12,24 @@ const envConfigSchema = z.object({
     z.literal("test"),
     z.literal("production"),
   ]),
+  DB_ROOT: z.string(),
+  DB_PASSWORD: z.string(),
+  DB_PORT: z.string(),
+  DB_NAME: z.string(),
+  JWT_ACCESS_TOKEN_SECRET: z.string(),
+  JWT_REFRESH_TOKEN_SECRET: z.string(),
 });
 
 interface IEnvConfig {
   [prop: string]: string;
   PORT: string;
   ENV: "development" | "staging" | "test" | "production";
+  DB_ROOT: string;
+  DB_PASSWORD: string;
+  DB_PORT: string;
+  DB_NAME: string;
+  JWT_ACCESS_TOKEN_SECRET: string;
+  JWT_REFRESH_TOKEN_SECRET: string;
 }
 
 export class EnvConfig {
@@ -29,9 +41,10 @@ export class EnvConfig {
   }
 
   private static parseEnvFile() {
-    const envFile = process.env.ENV
-      ? `${process.cwd()}/.env.${process.env.ENV}`
-      : `${process.cwd()}/.env`;
+    const envFile =
+      process.env.ENV !== "development"
+        ? `${process.cwd()}/.env.${process.env.ENV}`
+        : `${process.cwd()}/.env`;
 
     return dotenv.parse(fs.readFileSync(envFile));
   }
@@ -58,5 +71,16 @@ export class EnvConfig {
 
   get PORT(): number {
     return parseInt(this.config.PORT || "3200", 10);
+  }
+
+  get DB_URL(): string {
+    return `mongodb://${this.config.DB_ROOT}:${this.config.DB_PASSWORD}@localhost:${this.config.DB_PORT}/${this.config.DB_NAME}?ssl=false`;
+  }
+  get JWT_ACCESS_TOKEN_SECRET(): string {
+    return this.config.JWT_ACCESS_TOKEN_SECRET;
+  }
+
+  get JWT_REFRESH_TOKEN_SECRET(): string {
+    return this.config.JWT_REFRESH_TOKEN_SECRET;
   }
 }

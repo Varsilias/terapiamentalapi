@@ -1,12 +1,12 @@
 import winston from "winston";
 import DailyRotateFile from "winston-daily-rotate-file";
 
-var logRotateTransport = new DailyRotateFile({
+const logRotateTransport = new DailyRotateFile({
   filename: "./logs/application-%DATE%.log",
   datePattern: "DD-MM-yyyy",
 });
 
-let format = winston.format;
+const format = winston.format;
 
 const prettyJson = format.printf((info) => {
   if (info.message?.constructor === Object) {

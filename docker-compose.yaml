@@ -1,0 +1,69 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    container_name: mongo
+    networks:
+      - mainstack_network
+    volumes:
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - $HOME/data/mongo:/data/db
+
+    env_file:
+      - .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $DB_ROOT
+      MONGO_INITDB_ROOT_PASSWORD: $DB_PASSWORD
+      MONGO_INITDB_DATABASE: $DB_NAME
+    ports:
+      - "$DB_PORT:$DB_PORT"
+
+  # mongo-express:
+  #   image: mongo-express:1.0.2-20-alpine3.19
+  #   container_name: mongo-express
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #   networks:
+  #     - mainstack_network
+  #   ports:
+  #     - "8081:8081"
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: "P@ssword1234"
+  #     ME_CONFIG_MONGODB_URL: "mongodb://$DB_ROOT:$DB_PASSWORD@mongo:$DB_PORT"
+  #     ME_CONFIG_OPTIONS_EDITORTHEME: "material"
+  #     ME_CONFIG_MONGODB_SERVER: mongo
+  #     ME_CONFIG_BASICAUTH_USERNAME: "webadmin"
+  #     ME_CONFIG_BASICAUTH_PASSWORD: "webadmin"
+  #     ME_CONFIG_MONGODB_PORT: $DB_PORT
+  #     ME_CONFIG_MONGODB_ENABLE_ADMIN: true
+  #   env_file:
+  #     - .env
+  #   links:
+  #     - mongo
+
+  mainstack:
+    container_name: mainstack-core
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    env_file:
+      - .env
+    ports:
+      - "$PORT:$PORT"
+    depends_on:
+      - mongo
+    volumes:
+      - .:/usr/src/app # any change to base folder should be reflected
+      - /usr/src/app/node_modules
+    networks:
+      - mainstack_network
+    command: yarn dev # overrides CMD from dockerfile
+
+networks:
+  mainstack_network:
+    driver: bridge

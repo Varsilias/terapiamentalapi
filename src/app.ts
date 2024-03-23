@@ -1,22 +1,31 @@
-import express, { Request, Response, NextFunction } from "express";
-import { EnvConfig } from "./config/env.config";
+import express, { NextFunction, Request, Response } from "express";
+// import { EnvConfig } from "./config/env.config";
 import { HttpStatus } from "./enums";
 import { logger } from "./config/logger.config";
-import { AppException } from "./exceptions";
+import { v1Routes } from "./v1/modules/route-index";
+import cors from "cors";
+import bodyParser from "body-parser";
+// import { connect } from "./database/mongo";
 
 const app = express();
 
-new EnvConfig();
+// const config = new EnvConfig();
 
-app.get("/", (req, res) => {
-  throw new AppException("src.app", "Unable to process request", {
-    error: "FIELD_VALIDATION",
-    data: {},
-  });
-  res.send("Hello World");
+// connect(config.DB_URL);
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ limit: "15mb", extended: true }));
+app.use(bodyParser.json({ limit: "15mb" }));
+app.use(bodyParser.raw({ limit: "45mb" }));
+
+app.get("/health-check", (req, res) => {
+  res.send("All Systems Up");
 });
 
-app.use(async (error: any, req: Request, res: Response, next: NextFunction) => {
+app.use("/api/v1", v1Routes);
+
+// eslint-disable-next-line  @typescript-eslint/no-unused-vars
+app.use(async (error: any, __: Request, res: Response, _: NextFunction) => {
   logger.error(
     `[MainstackException] - [ExceptionHandler] --> [Location]: "${error.errorCode}" ---- ${error.customMessage}`,
   );
@@ -33,7 +42,7 @@ app.use(async (error: any, req: Request, res: Response, next: NextFunction) => {
 app.get("*", function (_, res) {
   res
     .status(HttpStatus.NOT_FOUND)
-    .json({ message: "Resource not found, check the url and try again" });
+    .json({ message: "Resource not found, check the URL or REQUEST METHOD and try again" });
 });
 
 export default app;
