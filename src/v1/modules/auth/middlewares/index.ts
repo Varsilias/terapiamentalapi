@@ -38,6 +38,8 @@ export const validateRequest =
           break;
       }
 
+      console.log(schema.data);
+
       next();
     } catch (error: any) {
       logger.error(

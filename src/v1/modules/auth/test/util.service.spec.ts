@@ -6,7 +6,6 @@ describe("UtilService", () => {
     it("should hash password and return a pbkdf2Sync encrypted string of length 64", () => {
       const salt = crypto.randomBytes(16).toString("hex");
       const password = "P@ssword1234";
-
       const result = hashPassword(password, salt);
 
       expect(typeof result).toBe("string");

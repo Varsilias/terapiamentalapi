@@ -30,7 +30,7 @@ authRouter.get("/me", authCheck, (req: IRequest, res: Response) => {
 
 authRouter.post(
   "/refresh-token",
-  // validateRequest(REQUEST_FIELD.BODY, schema.RefreshTokenSchema),
+  validateRequest(REQUEST_FIELD.BODY, schema.RefreshTokenSchema),
   (req, res) => {
     return res.status(200).json({ message: "You have reached refresh token route" });
   },

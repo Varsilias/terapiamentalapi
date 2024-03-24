@@ -49,7 +49,7 @@ export const SignInSchema = z.object({
 
 export const RefreshTokenSchema = z.object({
   refresh_token: z.string({
-    required_error: "Refresh tokem is required",
+    required_error: "Refresh token is required",
     invalid_type_error: "Refresh token must be a string",
   }),
 });

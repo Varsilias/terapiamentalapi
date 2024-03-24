@@ -14,10 +14,13 @@ const envConfigSchema = z.object({
   ]),
   DB_ROOT: z.string(),
   DB_PASSWORD: z.string(),
+  DB_ROOT_PASSWORD: z.string(),
+  DB_USER: z.string(),
   DB_PORT: z.string(),
   DB_NAME: z.string(),
   JWT_ACCESS_TOKEN_SECRET: z.string(),
   JWT_REFRESH_TOKEN_SECRET: z.string(),
+  DB_URL: z.string(),
 });
 
 interface IEnvConfig {
@@ -30,6 +33,9 @@ interface IEnvConfig {
   DB_NAME: string;
   JWT_ACCESS_TOKEN_SECRET: string;
   JWT_REFRESH_TOKEN_SECRET: string;
+  DB_ROOT_PASSWORD: string;
+  DB_USER: string;
+  DB_URL: string;
 }
 
 export class EnvConfig {
@@ -73,8 +79,11 @@ export class EnvConfig {
     return parseInt(this.config.PORT || "3200", 10);
   }
 
+  // We could also make the host and Environment Variable
   get DB_URL(): string {
-    return `mongodb://${this.config.DB_ROOT}:${this.config.DB_PASSWORD}@localhost:${this.config.DB_PORT}/${this.config.DB_NAME}?ssl=false`;
+    return this.inProduction
+      ? this.config.DB_URL
+      : `mongodb://${this.config.DB_USER}:${this.config.DB_PASSWORD}@mongo:${this.config.DB_PORT}/${this.config.DB_NAME}?authSource=admin`;
   }
   get JWT_ACCESS_TOKEN_SECRET(): string {
     return this.config.JWT_ACCESS_TOKEN_SECRET;
