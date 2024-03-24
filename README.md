@@ -12,6 +12,6 @@ In order to setup this project and avoid running into errors, you need to have *
 6.  Start the MongoDB, Mongo Express (DBMS for Mongo) and the API development server by running `docker compose up`, you can run all the services in the background with `docker compose up -d`
 7.  Open your browser and navigate to **http://localhost:8081** to view your database, you also have a choice to use your favourite MongoDB visualization tool to view your database. The Connection string should be: **mongodb://<DB_USER>:<DB_PASSWORD>@localhost:27017/<DB_NAME>?authSource=admin**
     **NB:** DB_USER, DB_PASSWORD and DB_NAME are from the Environment Variables set earlier
-8.  If you did everything well, you local development server will be running at **http://locahost:<PORT>**
+8.  If you did everything well, you local development server will be running at: **(`http://localhost:<PORT>`)**
     **NB:** PORT is from the Environment Variables set earlier
-9.  Send a **GET** to **http://locahost:<PORT>/health-check**, you should see this response **"All Systems Up"**
+9.  Send a **GET** Request to **(`http://localhost:<PORT>/health-check`)**, you should see this response **"All Systems Up"**
