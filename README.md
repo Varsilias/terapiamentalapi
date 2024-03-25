@@ -15,3 +15,4 @@ In order to setup this project and avoid running into errors, you need to have *
 8.  If you did everything well, you local development server will be running at: **(`http://localhost:<PORT>`)**
     **NB:** PORT is from the Environment Variables set earlier
 9.  Send a **GET** Request to **(`http://localhost:<PORT>/health-check`)**, you should see this response **"All Systems Up"**
+10. Run all unit test cases with the command `npm run test:unit` or `yarn test:unit`
