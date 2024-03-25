@@ -91,7 +91,7 @@ export const getProducts = async (payload: IGetAllProductsDto) => {
       page,
       perPage,
       ...extractAggregrationData(pipelineResult).analytics,
-      stores: extractAggregrationData(pipelineResult).data,
+      products: extractAggregrationData(pipelineResult).data,
     },
   };
 };
@@ -111,7 +111,7 @@ export const getProduct = async (payload: IGetAProductDto) => {
       statusCode,
     };
   }
-  const product = await Product.findOne({ _id: productId, storeId });
+  const product = (await Product.findOne({ _id: productId, storeId })) as IProduct;
 
   if (!product) {
     return {
@@ -159,7 +159,7 @@ export const updateProduct = async (payload: IUpdateAProduct) => {
     };
   }
 
-  const updatedStore = await Product.findOne({ storeId, _id: productId });
+  const updatedStore = (await Product.findOne({ storeId, _id: productId })) as IProduct;
 
   return {
     status: true,
@@ -194,7 +194,7 @@ export const deleteProduct = async (payload: IDeleteAProduct) => {
     };
   }
 
-  const deletedProduct = await Product.findOne({ storeId, _id: productId });
+  const deletedProduct = (await Product.findOne({ storeId, _id: productId })) as IProduct;
 
   return {
     status: true,

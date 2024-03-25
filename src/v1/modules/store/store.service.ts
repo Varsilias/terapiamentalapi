@@ -56,7 +56,7 @@ export const getStores = async (payload: IGetAllStoresDto) => {
   const pipelineResult = await pipeline<IStore>({ Model: Store, stages, perPage, skip });
 
   return {
-    status: false,
+    status: true,
     message: "Stores fetched successfully",
     statusCode: HttpStatus.OK,
     data: {
@@ -70,11 +70,11 @@ export const getStores = async (payload: IGetAllStoresDto) => {
 
 export const getStore = async (payload: IGetAStoreDto) => {
   const { storeId, userId } = payload;
-  const store = await Store.findOne({
+  const store = (await Store.findOne({
     _id: storeId,
     userId,
     $or: [{ deletedAt: undefined }, { deletedAt: null }, { deletedAt: { $exists: false } }],
-  });
+  })) as IStore;
 
   if (!store) {
     return {
@@ -120,7 +120,7 @@ export const updateStore = async (payload: IUpdateAStore) => {
     };
   }
 
-  const updatedStore = await Store.findOne({ userId, _id: storeId });
+  const updatedStore = (await Store.findOne({ userId, _id: storeId })) as IStore;
 
   return {
     status: true,
@@ -155,7 +155,7 @@ export const deleteStore = async (payload: IDeleteAStore) => {
     };
   }
 
-  const deletedStore = await Store.findOne({ userId, _id: storeId });
+  const deletedStore = (await Store.findOne({ userId, _id: storeId })) as IStore;
 
   return {
     status: true,

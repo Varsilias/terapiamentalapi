@@ -40,8 +40,8 @@ export interface IGetAStoreDto {
 }
 
 export interface IUpdateAStore {
-  name: string;
-  logo: string;
+  name?: string;
+  logo?: string;
   storeId: string;
   userId: string;
 }
@@ -74,10 +74,10 @@ export interface IGetAProductDto {
 }
 
 export interface IUpdateAProduct {
-  name: string;
-  description: string;
-  price: number;
-  quantityAvailable: number;
+  name?: string;
+  description?: string;
+  price?: number;
+  quantityAvailable?: number;
   storeId: string;
   productId: string;
   userId: string;
