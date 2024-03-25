@@ -11,6 +11,7 @@ const StoreSchema = new mongoose.Schema<IStore>(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     logo: {
       type: String,

@@ -38,7 +38,7 @@ export const validateRequest =
           break;
       }
 
-      console.log(schema.data);
+      // console.log(schema.data);
 
       next();
     } catch (error: any) {

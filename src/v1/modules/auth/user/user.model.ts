@@ -47,7 +47,7 @@ UserSchema.pre("save", async function (next) {
   if (this.isModified("password")) {
     this.salt = crypto.randomBytes(16).toString("hex");
     const enteredPassword = this.password;
-    this.password = hashPassword(enteredPassword, this.salt);
+    this.password = hashPassword(enteredPassword!, this.salt);
     return next();
   } else {
     return next();
@@ -61,6 +61,15 @@ UserSchema.methods.comparePassword = function (password: string) {
     logger.error("[Mainstack Core] - [auth.user.schema.comparePassword] --> " + e);
     return false;
   }
+};
+
+UserSchema.methods.toJSON = function () {
+  const userObject = this.toObject();
+
+  delete userObject.password;
+  delete userObject.salt;
+
+  return userObject;
 };
 
 export const User = mongoose.model("User", UserSchema);

@@ -34,6 +34,10 @@ export const SignUpSchema = z.object({
       invalid_type_error: "Email must be a string",
     })
     .email({ message: "Please provide a valid email" }),
+  storename: z.string({
+    required_error: "Storename is required",
+    invalid_type_error: "Storename must be a string",
+  }),
   ...reusableSchema,
 });
 

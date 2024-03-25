@@ -4,10 +4,29 @@ export interface IUser {
   firstname: string;
   lastname: string;
   email: string;
-  salt: string;
+  salt?: string;
   emailVerified: boolean;
-  password: string;
+  password?: string;
   createdAt: string | Date;
   updatedAt: string | Date;
-  deletedAt: string | Date;
+  deletedAt: string | Date | null;
+  comparePassword?: (password: string) => boolean;
+}
+
+export interface ISignUpDto {
+  username: string;
+  lastname: string;
+  firstname: string;
+  email: string;
+  storename: string;
+  password: string;
+}
+
+export interface ISignInDto {
+  email: string;
+  password: string;
+}
+
+export interface IRefreshTokenDto {
+  refresh_token: string;
 }
