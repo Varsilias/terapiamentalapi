@@ -16,3 +16,11 @@ In order to setup this project and avoid running into errors, you need to have *
     **NB:** PORT is from the Environment Variables set earlier
 9.  Send a **GET** Request to **(`http://localhost:<PORT>/health-check`)**, you should see this response **"All Systems Up"**
 10. Run all unit test cases with the command `npm run test:unit` or `yarn test:unit`
+
+### Schema Diagram
+
+![Schema Diagram](https://github.com/Varsilias/mainstack-assessment/blob/main/schema-diagram.png)
+
+### API Docs Live URL
+
+[Postman Documentation](https://documenter.getpostman.com/view/10967402/2sA35Bd59N)

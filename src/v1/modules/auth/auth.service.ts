@@ -5,6 +5,7 @@ import { HttpStatus } from "../../../enums";
 import * as JwtService from "./jwt.service";
 import { JsonWebTokenError, JwtPayload, TokenExpiredError } from "jsonwebtoken";
 import { IStore } from "../store/types";
+import { logger } from "../../../config/logger.config";
 
 interface IJwtPayload extends JwtPayload {
   [key: string]: any;
@@ -99,7 +100,7 @@ export const generateNewAccessToken = async (payload: IRefreshTokenDto) => {
       data: { accessToken, refreshToken },
     };
   } catch (error: any) {
-    console.log(error);
+    logger.error(`${error?.message}`);
 
     if (error instanceof TokenExpiredError) {
       return {

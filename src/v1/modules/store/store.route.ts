@@ -1,91 +1,82 @@
 import { Router } from "express";
-import { HttpStatus, REQUEST_FIELD } from "../../../enums/";
-// import { IRequest } from "../../../types/custom";
+import { REQUEST_FIELD } from "../../../enums/";
 import * as schema from "./validation-schemas";
-import { validateRequest } from "../auth/middlewares";
+import { authCheck, validateRequest } from "../auth/middlewares";
+import * as StoreController from "./store.controller";
+import * as ProductController from "./product/product.controller";
 
 export const storeRouter = Router();
 
-storeRouter.post("/", validateRequest(REQUEST_FIELD.BODY, schema.CreateStoreSchema), (req, res) => {
-  return res.status(HttpStatus.OK).json({ message: "You have reached create store route" });
-});
+storeRouter.post(
+  "/",
+  authCheck,
+  validateRequest(REQUEST_FIELD.BODY, schema.CreateStoreSchema),
+  StoreController.createNewStore,
+);
 
 storeRouter.get(
   "/",
+  authCheck,
   validateRequest(REQUEST_FIELD.QUERY, schema.GetAllStoresSchema),
-  (req, res) => {
-    return res.status(HttpStatus.OK).json({ message: "You have reached get all stores route" });
-  },
+  StoreController.getAllStores,
 );
 
 storeRouter.get(
   "/:storeId",
+  authCheck,
   validateRequest(REQUEST_FIELD.PARAMS, schema.GetAStoreSchema),
-  (req, res) => {
-    return res.status(HttpStatus.OK).json({ message: "You have reached get single stores route" });
-  },
+  StoreController.getAStore,
 );
 
 storeRouter.patch(
   "/:storeId",
+  authCheck,
   validateRequest(REQUEST_FIELD.PARAMS, schema.GetAStoreSchema),
-  (req, res) => {
-    return res.status(HttpStatus.OK).json({ message: "You have reached update store route" });
-  },
+  validateRequest(REQUEST_FIELD.BODY, schema.UpdateAStoreBodySchema),
+  StoreController.updateAStore,
 );
 
 storeRouter.delete(
   "/:storeId",
+  authCheck,
   validateRequest(REQUEST_FIELD.PARAMS, schema.GetAStoreSchema),
-  (req, res) => {
-    return res.status(HttpStatus.OK).json({ message: "You have reached delete store route" });
-  },
+  StoreController.deleteAStore,
 );
 
 storeRouter.post(
   "/:storeId/product",
+  authCheck,
   validateRequest(REQUEST_FIELD.PARAMS, schema.GetAStoreSchema),
-  (req, res) => {
-    return res.status(HttpStatus.OK).json({ message: "You have reached create product route" });
-  },
+  validateRequest(REQUEST_FIELD.BODY, schema.CreateProductSchema),
+  ProductController.createNewProduct,
 );
 
 storeRouter.get(
   "/:storeId/product",
+  authCheck,
   validateRequest(REQUEST_FIELD.PARAMS, schema.GetAStoreSchema),
-  (req, res) => {
-    return res
-      .status(HttpStatus.OK)
-      .json({ message: "You have reached get all store products route" });
-  },
+  validateRequest(REQUEST_FIELD.QUERY, schema.GetAllStoresSchema),
+  ProductController.getAllProducts,
 );
 
 storeRouter.get(
   "/:storeId/product/:productId",
+  authCheck,
   validateRequest(REQUEST_FIELD.PARAMS, schema.GetStoreProductSchema),
-  (req, res) => {
-    return res
-      .status(HttpStatus.OK)
-      .json({ message: "You have reached get single product from store route" });
-  },
+  ProductController.getAProduct,
 );
 
 storeRouter.patch(
   "/:storeId/product/:productId",
+  authCheck,
   validateRequest(REQUEST_FIELD.PARAMS, schema.GetStoreProductSchema),
-  (req, res) => {
-    return res
-      .status(HttpStatus.OK)
-      .json({ message: "You have reached update single product from store route" });
-  },
+  validateRequest(REQUEST_FIELD.BODY, schema.UpdateStoreProductSchema),
+  ProductController.updateAProduct,
 );
 
 storeRouter.delete(
   "/:storeId/product/:productId",
+  authCheck,
   validateRequest(REQUEST_FIELD.PARAMS, schema.GetStoreProductSchema),
-  (req, res) => {
-    return res
-      .status(HttpStatus.OK)
-      .json({ message: "You have delete single product from store route" });
-  },
+  ProductController.deleteAProduct,
 );
