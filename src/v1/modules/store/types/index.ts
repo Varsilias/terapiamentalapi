@@ -26,6 +26,7 @@ export interface IProduct {
 export interface ICreateStoreDto {
   name: string;
   userId: string;
+  logo?: string;
 }
 
 export interface IGetAllStoresDto {

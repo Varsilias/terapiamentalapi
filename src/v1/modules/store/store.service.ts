@@ -13,7 +13,7 @@ import { pipeline } from "../../../utils/model-pipeline";
 import { extractAggregrationData } from "../../../utils/extract-aggregation-data";
 
 export const createStore = async (payload: ICreateStoreDto) => {
-  const { name, userId } = payload;
+  const { name, userId, logo } = payload;
   const storeExists = await Store.findOne({ name });
 
   if (storeExists) {
@@ -24,7 +24,7 @@ export const createStore = async (payload: ICreateStoreDto) => {
     };
   }
 
-  const store = (await new Store({ name, userId }).save()) as IStore;
+  const store = (await new Store({ name, userId, logo }).save()) as IStore;
   return {
     status: false,
     message: "Store created successfully",
