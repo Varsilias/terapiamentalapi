@@ -1,5 +1,5 @@
-# mongosh admin -u root -p Password1234 --eval "printjson(db.createUser({user: 'mainstack', pwd: 'Mainstack1234', roles: [{role: 'readWrite', db: 'mainstack'}]}))"
-# mongosh admin -u root -p Password1234 --eval "printjson(db.createUser({user: 'mainstack', pwd: 'Mainstack1234', roles: [{role: 'readWrite', db: 'admin'}]}))"
+# mongosh admin -u root -p Password1234 --eval "printjson(db.createUser({user: 'terapiamental', pwd: 'TerapiaMental1234', roles: [{role: 'readWrite', db: 'terapiamental'}]}))"
+# mongosh admin -u root -p Password1234 --eval "printjson(db.createUser({user: 'terapiamental', pwd: 'TerapiaMental1234', roles: [{role: 'readWrite', db: 'admin'}]}))"
 
 # Define the path to the environment files
 ENV_FILES="../.env ../.env.staging ../.env.test"

@@ -58,7 +58,7 @@ UserSchema.methods.comparePassword = function (password: string) {
   try {
     return comparePassword(password, this.salt, this.password);
   } catch (e) {
-    logger.error("[Mainstack Core] - [auth.user.schema.comparePassword] --> " + e);
+    logger.error("[TerapiaMental Core] - [auth.user.schema.comparePassword] --> " + e);
     return false;
   }
 };

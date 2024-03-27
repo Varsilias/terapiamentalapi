@@ -27,7 +27,7 @@ app.use("/api/v1", v1Routes);
 // eslint-disable-next-line  @typescript-eslint/no-unused-vars
 app.use(async (error: any, __: Request, res: Response, _: NextFunction) => {
   logger.error(
-    `[MainstackException] - [ExceptionHandler] --> [Location]: "${error.errorCode}" ---- ${error.customMessage}`,
+    `[TerapiaMentalException] - [ExceptionHandler] --> [Location]: "${error.errorCode}" ---- ${error.customMessage}`,
   );
   res.status(error.statusCode).json({
     status: false,

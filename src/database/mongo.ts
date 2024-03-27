@@ -7,9 +7,9 @@ export function connect(mongoURI: string) {
   mongoose
     .connect(mongoURI)
     .then(() => {
-      logger.info("[Mainstack DB] --> connected to DB");
+      logger.info("[TerapiaMental DB] --> connected to DB");
     })
     .catch((error) => {
-      logger.error(`[Mainstack DB] --> [DB Connection Error] --> ${error.message}`);
+      logger.error(`[TerapiaMental DB] --> [DB Connection Error] --> ${error.message}`);
     });
 }

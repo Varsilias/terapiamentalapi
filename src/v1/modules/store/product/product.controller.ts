@@ -23,7 +23,7 @@ export const createNewProduct = async (req: IRequest, res: Response) => {
     return res.status(statusCode).json({ status, message, data });
   } catch (error: any) {
     logger.error(
-      `[MainstackException] - [ExceptionHandler] - [store.controller.createNewProduct]: ${error?.message}`,
+      `[TerapiaMentalException] - [ExceptionHandler] - [store.controller.createNewProduct]: ${error?.message}`,
     );
     return res
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -43,7 +43,7 @@ export const getAllProducts = async (req: IRequest, res: Response) => {
     return res.status(statusCode).json({ status, message, data });
   } catch (error: any) {
     logger.error(
-      `[MainstackException] - [ExceptionHandler] - [store.controller.getAllProducts]: ${error?.message}`,
+      `[TerapiaMentalException] - [ExceptionHandler] - [store.controller.getAllProducts]: ${error?.message}`,
     );
     return res
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -62,7 +62,7 @@ export const getAProduct = async (req: IRequest, res: Response) => {
     return res.status(statusCode).json({ status, message, data });
   } catch (error: any) {
     logger.error(
-      `[MainstackException] - [ExceptionHandler] - [store.controller.getAProduct]: ${error?.message}`,
+      `[TerapiaMentalException] - [ExceptionHandler] - [store.controller.getAProduct]: ${error?.message}`,
     );
     return res
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -78,7 +78,7 @@ export const updateAProduct = async (req: IRequest, res: Response) => {
     return res.status(statusCode).json({ status, message, data });
   } catch (error: any) {
     logger.error(
-      `[MainstackException] - [ExceptionHandler] - [store.controller.updateAProduct]: ${error?.message}`,
+      `[TerapiaMentalException] - [ExceptionHandler] - [store.controller.updateAProduct]: ${error?.message}`,
     );
     return res
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -99,7 +99,7 @@ export const deleteAProduct = async (req: IRequest, res: Response) => {
     return res.status(statusCode).json({ status, message, data });
   } catch (error: any) {
     logger.error(
-      `[MainstackException] - [ExceptionHandler] - [store.controller.deleteAProduct]: ${error?.message}`,
+      `[TerapiaMentalException] - [ExceptionHandler] - [store.controller.deleteAProduct]: ${error?.message}`,
     );
     return res
       .status(HttpStatus.INTERNAL_SERVER_ERROR)

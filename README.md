@@ -1,11 +1,15 @@
-## Mainstack Assessment - Setup Instructions
+## TerapiaMental API - Setup Instructions
+
+### Description
+
+Terapia Mental Spanish for Mental Therapy is a mobile application that allows individuals to seek mental therapy.
 
 ### Local Setup
 
 In order to setup this project and avoid running into errors, you need to have **Docker** and **Git** installed
 
-1.  Naviagte into the preferred location of your machine **(preferrably in your $HOME directory)** and clone the project repo with the command `git clone git@github.com:Varsilias/mainstack-assessment.git`
-2.  Navigate into the project directory by running the command `cd mainstack-assessment`
+1.  Naviagte into the preferred location of your machine **(preferrably in your $HOME directory)** and clone the project repo with the command `git clone git@github.com:Varsilias/terapiamentalapi.git`
+2.  Navigate into the project directory by running the command `cd terapiamentalapi`
 3.  Install project dependencies with `npm install` or `yarn install`
 4.  For local development, you need to have a `.env` file in the root of the project directory. In your terminal window, navigate to the project directory and create a `.env` with the command `cp .env.example .env`
 5.  Fill in the required environment information
@@ -19,7 +23,7 @@ In order to setup this project and avoid running into errors, you need to have *
 
 ### Schema Diagram
 
-![Schema Diagram](https://github.com/Varsilias/mainstack-assessment/blob/main/schema-diagram.png)
+![Schema Diagram](https://github.com/Varsilias/terapiamentalapi/blob/main/schema-diagram.png)
 
 ### API Docs Live URL
 

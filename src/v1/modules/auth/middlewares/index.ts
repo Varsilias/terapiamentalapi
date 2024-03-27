@@ -43,7 +43,7 @@ export const validateRequest =
       next();
     } catch (error: any) {
       logger.error(
-        `[MainstackException] - [ExceptionHandler] - [auth.middleware.validateRequest]: ${error.message}`,
+        `[TerapiaMentalException] - [ExceptionHandler] - [auth.middleware.validateRequest]: ${error.message}`,
       );
       return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
         status: false,
@@ -74,7 +74,7 @@ export const authCheck = async (req: IRequest, res: Response, next: NextFunction
     next();
   } catch (error: any) {
     logger.error(
-      `[MainstackException] - [ExceptionHandler] - [auth.middleware.authCheck]: ${error.message}`,
+      `[TerapiaMentalException] - [ExceptionHandler] - [auth.middleware.authCheck]: ${error.message}`,
     );
     // TODO: reissue a new access token provided the refresh token is present
     if (error instanceof TokenExpiredError) {
