@@ -23,7 +23,7 @@ In order to setup this project and avoid running into errors, you need to have *
 
 ### Schema Diagram
 
-![Schema Diagram](https://github.com/Varsilias/terapiamentalapi/blob/main/schema-diagram.png)
+![Schema Diagram](https://github.com/Varsilias/terapiamentalapi/blob/master/schema-diagram.png)
 
 ### API Docs Live URL
 
