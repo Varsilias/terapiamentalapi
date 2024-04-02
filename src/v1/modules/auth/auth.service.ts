@@ -1,10 +1,8 @@
 import { IRefreshTokenDto, ISignInDto, ISignUpDto, IUser } from "./types";
 import { User } from "./user/user.model";
-import { Store } from "../store/store.model";
 import { HttpStatus } from "../../../enums";
 import * as JwtService from "./jwt.service";
 import { JsonWebTokenError, JwtPayload, TokenExpiredError } from "jsonwebtoken";
-import { IStore } from "../store/types";
 import { logger } from "../../../config/logger.config";
 
 interface IJwtPayload extends JwtPayload {
@@ -17,7 +15,7 @@ export const findUserById = async (userId: string) => {
 };
 
 export const signUp = async (payload: ISignUpDto) => {
-  const { email, storename, ...rest } = payload;
+  const { email, ...rest } = payload;
 
   const userExists = await User.findOne({ email });
 
@@ -25,22 +23,11 @@ export const signUp = async (payload: ISignUpDto) => {
     return { status: false, message: "Email already in use.", statusCode: HttpStatus.BAD_REQUEST };
   }
 
-  const storeExists = await Store.findOne({ name: storename });
-
-  if (storeExists) {
-    return {
-      status: false,
-      message: "The store name you provided already exist. Kindly use a new store name.",
-      statusCode: HttpStatus.BAD_REQUEST,
-    };
-  }
-
   const user = (await new User({ email, ...rest }).save()) as IUser;
-  const store = (await new Store({ name: storename, userId: user._id }).save()) as IStore;
   return {
     status: true,
     message: "Sign up successful",
-    data: { user, store },
+    data: user,
     statusCode: HttpStatus.OK,
   };
 };

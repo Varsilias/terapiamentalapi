@@ -21,6 +21,8 @@ const envConfigSchema = z.object({
   JWT_ACCESS_TOKEN_SECRET: z.string(),
   JWT_REFRESH_TOKEN_SECRET: z.string(),
   DB_URL: z.string(),
+  DB_SYNC: z.string(),
+  DB_HOST: z.string().default("localhost"),
 });
 
 interface IEnvConfig {
@@ -36,6 +38,8 @@ interface IEnvConfig {
   DB_ROOT_PASSWORD: string;
   DB_USER: string;
   DB_URL: string;
+  DB_SYNC: string;
+  DB_HOST: string;
 }
 
 export class EnvConfig {
@@ -79,7 +83,26 @@ export class EnvConfig {
     return parseInt(this.config.PORT || "3200", 10);
   }
 
-  // We could also make the host and Environment Variable
+  get DB_USER(): string {
+    return this.config.DB_USER;
+  }
+
+  get DB_NAME(): string {
+    return this.config.DB_NAME;
+  }
+
+  get DB_PASSWORD(): string {
+    return this.config.DB_PASSWORD;
+  }
+
+  get DB_HOST(): string {
+    return this.config.DB_HOST;
+  }
+  get DB_PORT(): number {
+    return Number(this.config.DB_PORT);
+  }
+
+  // We could also make the host an Environment Variable
   get DB_URL(): string {
     return this.inProduction
       ? this.config.DB_URL
@@ -91,5 +114,9 @@ export class EnvConfig {
 
   get JWT_REFRESH_TOKEN_SECRET(): string {
     return this.config.JWT_REFRESH_TOKEN_SECRET;
+  }
+
+  get DB_SYNC() {
+    return /(true|on|1)/gi.test(this.config.DB_SYNC);
   }
 }

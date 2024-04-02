@@ -1,17 +1,13 @@
 import express, { NextFunction, Request, Response } from "express";
-import { EnvConfig } from "./config/env.config";
 import { HttpStatus } from "./enums";
 import { logger } from "./config/logger.config";
 import { v1Routes } from "./v1/modules/route-index";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { connect } from "./database/mongo";
+import { connect } from "./database/sql";
 
 const app = express();
-
-const config = new EnvConfig();
-
-connect(config.DB_URL);
+connect();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ limit: "15mb", extended: true }));
