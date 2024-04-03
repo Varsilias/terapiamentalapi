@@ -1,6 +1,7 @@
 import { BaseEntity } from "../../../../common/base-entity";
-import { Column, Entity } from "typeorm";
+import { Column, Entity, OneToMany } from "typeorm";
 import { GenderEnum } from "../types";
+import { UserChoiceEntity } from "../../onboarding/entites/user-choice.entity";
 
 @Entity({ name: "users" })
 export class UserEntity extends BaseEntity<UserEntity> {
@@ -61,6 +62,11 @@ export class UserEntity extends BaseEntity<UserEntity> {
 
   @Column({ default: false })
   onboarding_done!: boolean;
+
+  @OneToMany(() => UserChoiceEntity, (choices) => choices.option, {
+    cascade: ["remove"], // we are using remove because we are limited in storage
+  })
+  user_choices!: UserChoiceEntity[];
 
   sanitize() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
