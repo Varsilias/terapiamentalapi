@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { DataSourceOptions } from "typeorm";
 import { EnvConfig } from "./env.config";
 import { join } from "path";
@@ -15,7 +16,7 @@ export const ormConfig: DataSourceOptions = {
         port: config.DB_PORT,
         database: config.DB_NAME,
       }),
-  entities: [join(__dirname, "**", "*.entity.{ts,js}")],
+  entities: [join(__dirname + "/../", "**", "", "*.entity.{ts,js}")],
   synchronize: config.DB_SYNC,
   logging: !config.inProduction ? ["error", "migration", "warn"] : false,
   ssl: !config.inProduction ? false : { rejectUnauthorized: false },

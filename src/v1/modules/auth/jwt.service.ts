@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 const config = new EnvConfig();
 
 export const signAccessToken = (
-  payload: { _id: string; email: string },
+  payload: { id: number; public_id: string; email: string },
   expiry?: string | number,
 ) => {
   return jwt.sign(payload, config.JWT_ACCESS_TOKEN_SECRET, { expiresIn: expiry ?? "1h" });
@@ -16,7 +16,7 @@ export const verifyAccessToken = (token: string) => {
 };
 
 export const signRefreshToken = (
-  payload: { _id: string; email: string },
+  payload: { id: number; public_id: string; email: string },
   expiry?: string | number,
 ) => {
   return jwt.sign(payload, config.JWT_REFRESH_TOKEN_SECRET, { expiresIn: expiry ?? "14d" });

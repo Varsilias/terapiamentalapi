@@ -1,9 +1,9 @@
 import { Router, Response } from "express";
 import { authCheck, validateRequest } from "./middlewares";
 import * as schema from "./validator-schemas";
-import { REQUEST_FIELD, HttpStatus } from "../../../enums/";
-import { IRequest } from "../../../types/custom";
+import { HttpStatus, REQUEST_FIELD } from "../../../enums/";
 import * as AuthController from "./auth.controller";
+import { IRequest } from "src/types/custom";
 
 export const authRouter = Router();
 

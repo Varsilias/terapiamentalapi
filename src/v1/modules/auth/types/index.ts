@@ -1,25 +1,25 @@
 export interface IUser {
-  _id: string;
-  username: string;
+  id: number;
   firstname: string;
   lastname: string;
   email: string;
   salt?: string;
   emailVerified: boolean;
   password?: string;
-  createdAt: string | Date;
-  updatedAt: string | Date;
-  deletedAt: string | Date | null;
+  created_at: string | Date;
+  updated_at: string | Date;
+  deleted_at: string | Date | null;
   comparePassword?: (password: string) => boolean;
 }
 
 export interface ISignUpDto {
-  username: string;
   lastname: string;
   firstname: string;
   email: string;
-  storename: string;
   password: string;
+  phone_number: string;
+  date_of_birth: Date | string;
+  gender: GenderEnum;
 }
 
 export interface ISignInDto {
@@ -29,4 +29,9 @@ export interface ISignInDto {
 
 export interface IRefreshTokenDto {
   refresh_token: string;
+}
+
+export enum GenderEnum {
+  MALE = "Male",
+  FEMALE = "Female",
 }

@@ -1,41 +1,50 @@
-import { IRefreshTokenDto, ISignInDto, ISignUpDto, IUser } from "./types";
-import { User } from "./user/user.model";
+import { IRefreshTokenDto, ISignInDto, ISignUpDto } from "./types";
 import { HttpStatus } from "../../../enums";
+import { UserRepository } from "./user/user.repository";
+import { UserEntity } from "./user/user.entity";
+import crypto from "crypto";
+import * as UtilService from "./utils.service";
 import * as JwtService from "./jwt.service";
-import { JsonWebTokenError, JwtPayload, TokenExpiredError } from "jsonwebtoken";
+import { TokenExpiredError, JsonWebTokenError, JwtPayload } from "jsonwebtoken";
 import { logger } from "../../../config/logger.config";
 
 interface IJwtPayload extends JwtPayload {
   [key: string]: any;
 }
 
-export const findUserById = async (userId: string) => {
-  const user = await User.findById(userId);
-  return user;
+export const findUserById = async (id: number) => {
+  const user = await UserRepository.findOneBy({ id });
+  return user?.sanitize();
 };
 
 export const signUp = async (payload: ISignUpDto) => {
-  const { email, ...rest } = payload;
+  const { email, password } = payload;
 
-  const userExists = await User.findOne({ email });
+  const userExists = await UserRepository.findOne({ where: { email } });
 
   if (userExists) {
     return { status: false, message: "Email already in use.", statusCode: HttpStatus.BAD_REQUEST };
   }
 
-  const user = (await new User({ email, ...rest }).save()) as IUser;
+  const salt = crypto.randomBytes(16).toString("hex");
+  const hashedPassword = UtilService.hashPassword(password, salt);
+
+  const entity = UserRepository.create({ ...payload, salt, password: hashedPassword });
+  const user = (await UserRepository.save(entity)) as UserEntity;
+
   return {
     status: true,
     message: "Sign up successful",
-    data: user,
+    data: user.sanitize(),
     statusCode: HttpStatus.OK,
   };
 };
 
 export const signIn = async (payload: ISignInDto) => {
-  const userExists = (await User.findOne({ email: payload.email }).select(
-    "+password +salt",
-  )) as IUser;
+  const { email, password } = payload;
+  const userExists = (await UserRepository.findOne({
+    where: { email },
+  })) as UserEntity;
 
   if (!userExists) {
     return {
@@ -46,8 +55,9 @@ export const signIn = async (payload: ISignInDto) => {
   }
 
   // TODO: Ensure User Email has been verified
+  // TODO: Ensure User Phone number has been verified
 
-  const isMatch = userExists.comparePassword!(payload.password);
+  const isMatch = UtilService.comparePassword(password, userExists.salt, userExists.password);
 
   if (!isMatch) {
     return {
@@ -57,9 +67,14 @@ export const signIn = async (payload: ISignInDto) => {
     };
   }
 
-  const accessToken = JwtService.signAccessToken({ _id: userExists._id, email: userExists.email });
+  const accessToken = JwtService.signAccessToken({
+    id: userExists.id,
+    public_id: userExists.public_id,
+    email: userExists.email,
+  });
   const refreshToken = JwtService.signRefreshToken({
-    _id: userExists._id,
+    id: userExists.id,
+    public_id: userExists.public_id,
     email: userExists.email,
   });
 
@@ -67,7 +82,10 @@ export const signIn = async (payload: ISignInDto) => {
     status: true,
     message: "Login Successful",
     statusCode: HttpStatus.OK,
-    data: { token: { accessToken, refreshToken }, user: userExists },
+    data: {
+      token: { access_token: accessToken, refresh_token: refreshToken },
+      user: userExists.sanitize(),
+    },
   };
 };
 
@@ -75,8 +93,9 @@ export const generateNewAccessToken = async (payload: IRefreshTokenDto) => {
   try {
     const decodedUser = JwtService.verifyRefreshToken(payload.refresh_token) as IJwtPayload;
     const tokenPayload = {
-      _id: decodedUser._id,
+      id: decodedUser.id,
       email: decodedUser.email,
+      public_id: decodedUser.public_id,
     };
     const accessToken = JwtService.signAccessToken(tokenPayload);
     const refreshToken = JwtService.signRefreshToken(tokenPayload);
@@ -84,7 +103,7 @@ export const generateNewAccessToken = async (payload: IRefreshTokenDto) => {
       status: true,
       message: "Token retrieved successfully",
       statusCode: HttpStatus.CREATED,
-      data: { accessToken, refreshToken },
+      data: { access_token: accessToken, refresh_token: refreshToken },
     };
   } catch (error: any) {
     logger.error(`${error?.message}`);

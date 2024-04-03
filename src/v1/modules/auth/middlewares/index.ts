@@ -38,8 +38,6 @@ export const validateRequest =
           break;
       }
 
-      // console.log(schema.data);
-
       next();
     } catch (error: any) {
       logger.error(
@@ -67,7 +65,7 @@ export const authCheck = async (req: IRequest, res: Response, next: NextFunction
     const token = authHeader.split(" ")[1];
 
     const payload = JWTService.verifyAccessToken(token) as JwtPayload;
-    const user = await AuthService.findUserById(payload._id);
+    const user = await AuthService.findUserById(payload.id);
 
     req.user = user;
 

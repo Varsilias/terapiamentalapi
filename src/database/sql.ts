@@ -3,7 +3,7 @@ import { logger } from "../config/logger.config";
 import { ormConfig } from "../config/orm.config";
 import { DataSource } from "typeorm";
 
-const AppDataSource = new DataSource(ormConfig);
+export const AppDataSource = new DataSource(ormConfig);
 
 export const connect = () => {
   AppDataSource.initialize()

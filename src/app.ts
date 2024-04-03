@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import { HttpStatus } from "./enums";
 import { logger } from "./config/logger.config";
-import { v1Routes } from "./v1/modules/route-index";
+import { v1Routes } from "./v1/route-index";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { connect } from "./database/sql";

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { GenderEnum } from "../types";
 
 const reusableSchema = {
   password: z
@@ -16,10 +17,6 @@ const reusableSchema = {
 };
 
 export const SignUpSchema = z.object({
-  username: z.string({
-    required_error: "Username is required",
-    invalid_type_error: "Username must be a string",
-  }),
   lastname: z.string({
     required_error: "Lastname is required",
     invalid_type_error: "Lastname must be a string",
@@ -34,9 +31,23 @@ export const SignUpSchema = z.object({
       invalid_type_error: "Email must be a string",
     })
     .email({ message: "Please provide a valid email" }),
-  storename: z.string({
-    required_error: "Storename is required",
-    invalid_type_error: "Storename must be a string",
+  phone_number: z
+    .string({
+      required_error: "Phone number is required",
+      invalid_type_error: "Phone number must be a string",
+    })
+    .regex(/^[+]{1}(?:[0-9\-\\(\\)\\/.]\s?){6,15}[0-9]{1}$/, {
+      message: "Phone number must follow the required pattern",
+    }),
+  date_of_birth: z
+    .string({
+      invalid_type_error: "Date of birth must be string",
+      required_error: "Date of birth is required",
+    })
+    .datetime({ message: "Date of birth must be a ISO 8601 compliant date", offset: true }),
+  gender: z.nativeEnum(GenderEnum, {
+    invalid_type_error: "Gender must be either male or female",
+    required_error: "Gender is required",
   }),
   ...reusableSchema,
 });

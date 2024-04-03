@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { authRouter } from "./auth/auth.route";
-import { logger } from "../../config/logger.config";
+import { authRouter } from "./modules/auth/auth.route";
+import { logger } from "../config/logger.config";
 
 const router = Router();
 
