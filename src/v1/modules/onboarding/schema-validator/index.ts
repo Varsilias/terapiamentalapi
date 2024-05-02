@@ -101,6 +101,21 @@ export const GetAllStepsSchema = z.object({
     .positive({ message: `PerPage must be a positive integer` }),
 });
 
+export const PaginationSchema = z.object({
+  page: z.coerce
+    .number({
+      required_error: "Page is required",
+      invalid_type_error: "Page must be an integer",
+    })
+    .positive({ message: `Page must be a positive integer` }),
+  perPage: z.coerce
+    .number({
+      required_error: "PerPage is required",
+      invalid_type_error: "PerPage number must be an integer",
+    })
+    .positive({ message: `PerPage must be a positive integer` }),
+});
+
 export const OnboardingSelectionSchema = z.object({
   step_id: z.coerce
     .number({
@@ -127,6 +142,6 @@ export const OnboardingSelectionSchema = z.object({
     .string({
       invalid_type_error: "Custome Option must be a string",
     })
-    .max(50, { message: "Custome option Must be 50 or fewer characters long" })
+    .max(50, { message: "Custom option Must be 50 or fewer characters long" })
     .optional(),
 });

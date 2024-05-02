@@ -1,0 +1,317 @@
+{
+    "therapists": [
+        {
+            "id": "1",
+            "firstname": "David",
+            "lastname": "Miller",
+            "charge_per_hour": 7200,
+            "patients": 78,
+            "experience": 7,
+            "rating": 4.8,
+            "bio": "David Miller is a licensed clinical psychologist with over 7 years of experience. He specializes in treating anxiety, depression, and trauma. David uses a variety of evidence-based techniques to help his clients achieve their goals. In his free time, David enjoys spending time with his family and friends.",
+            "specialities": [
+                "Anxiety",
+                "Depression",
+                "Trauma"
+            ],
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+            "location": "Lagos, Nigeria",
+            "category": "Clinical Psychology"
+        },
+        {
+            "id": "2",
+            "firstname": "Sarah",
+            "lastname": "Thomas",
+            "charge_per_hour": 8500,
+            "patients": 85,
+            "experience": 9,
+            "rating": 4.2,
+            "bio": "Sarah Thomas is a marriage and family therapist with a passion for helping couples and families improve their communication and relationships. She uses a variety of techniques, including Gottman Method and Imago therapy, to help her clients create lasting change. Sarah is also a trained mediator and can help couples resolve conflict.",
+            "specialities": [
+                "Couples Therapy",
+                "Family Therapy",
+                "Communication Issues"
+            ],
+            "profile_image": "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+            "location": "Portharcourt, Nigeria",
+            "category": "Marriage & Family Therapists"
+        },
+        {
+            "id": "3",
+            "firstname": "Michael",
+            "lastname": "Brown",
+            "charge_per_hour": 6200,
+            "patients": 65,
+            "experience": 5,
+            "rating": 4.7,
+            "bio": "Michael Brown is a trauma counsellor specializing in helping individuals who have experienced a variety of traumatic events. He uses a client-centered approach to therapy, tailoring his treatment to the specific needs of each client. Michael is also trained in EMDR, a form of therapy that can be helpful for treating PTSD.",
+            "specialities": [
+                "Trauma",
+                "PTSD",
+                "Anxiety"
+            ],
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/03/02/88/46/1000_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg",
+            "location": "Abuja, Nigeria",
+            "category": "Trauma Counsellor"
+        },
+        {
+            "id": "4",
+            "firstname": "Alice",
+            "lastname": "Walker",
+            "charge_per_hour": 8800,
+            "patients": 88,
+            "experience": 8,
+            "rating": 4.5,
+            "bio": "Alice Walker is a mental health therapist with a focus on helping adolescents and young adults. She uses a variety of techniques, including cognitive behavioral therapy (CBT) and dialectical behavior therapy (DBT), to help her clients cope with challenges such as anxiety, depression, and relationship issues. Alice is passionate about helping young people reach their full potential.",
+            "specialities": [
+                "Adolescent Therapy",
+                "Young Adult Therapy",
+                "Anxiety",
+                "Depression"
+            ],
+            "profile_image": "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+            "location": "Lagos, Nigeria",
+            "category": "Mental Health Therapy"
+        },
+        {
+            "id": "5",
+            "firstname": "Olivia",
+            "lastname": "Johnson",
+            "charge_per_hour": 7000,
+            "patients": 65,
+            "experience": 6,
+            "rating": 4.7,
+            "bio": "Olivia is a dedicated clinical psychologist with a passion for helping individuals overcome their mental health challenges. With 6 years of experience, she has developed expertise in treating anxiety disorders, depression, and trauma. Olivia believes in providing compassionate and evidence-based therapy to empower her clients.",
+            "specialities": [
+                "Clinical Psychology",
+                "Anxiety Disorders",
+                "Depression"
+            ],
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+            "location": "Lagos, Nigeria",
+            "category": "Clinical Psychology"
+        },
+        {
+            "id": "6",
+            "firstname": "Michael",
+            "lastname": "Smith",
+            "charge_per_hour": 6500,
+            "patients": 70,
+            "experience": 7,
+            "rating": 4.5,
+            "bio": "Michael is a compassionate therapist specializing in marriage and family therapy. With 7 years of experience, he has helped numerous couples strengthen their relationships and navigate through challenges. Michael believes in fostering open communication and mutual understanding within relationships.",
+            "specialities": [
+                "Marriage & Family Therapists",
+                "Relationship Counseling"
+            ],
+            "profile_image": "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+            "location": "Portharcourt, Nigeria",
+            "category": "Marriage & Family Therapists"
+        },
+        {
+            "id": "7",
+            "firstname": "Daniel",
+            "lastname": "Williams",
+            "charge_per_hour": 8000,
+            "patients": 55,
+            "experience": 5,
+            "rating": 4.2,
+            "bio": "Daniel is a dedicated trauma counselor with a commitment to helping individuals overcome their past traumas and lead fulfilling lives. With 5 years of experience, he has developed expertise in treating post-traumatic stress disorder (PTSD) and other trauma-related conditions. Daniel provides a safe and supportive environment for his clients to heal.",
+            "specialities": [
+                "Trauma Counsellor",
+                "Post-Traumatic Stress Disorder"
+            ],
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/03/02/88/46/1000_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg",
+            "location": "Abuja, Nigeria",
+            "category": "Trauma Counsellor"
+        },
+        {
+            "id": "8",
+            "firstname": "Grace",
+            "lastname": "Adams",
+            "charge_per_hour": 7500,
+            "patients": 60,
+            "experience": 6,
+            "rating": 4.8,
+            "bio": "Grace is a seasoned marriage counselor with a passion for helping couples build strong and healthy relationships. With 6 years of experience, she specializes in communication skills, conflict resolution, and intimacy issues. Grace creates a supportive and non-judgmental environment where couples can explore their concerns and work towards positive change.",
+            "specialities": [
+                "Marriage Counsellor",
+                "Relationship Counseling",
+                "Intimacy Issues"
+            ],
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+            "location": "Lagos, Nigeria",
+            "category": "Marriage Counsellor"
+        },
+        {
+            "id": "9",
+            "firstname": "Sophia",
+            "lastname": "Williams",
+            "charge_per_hour": 7000,
+            "patients": 70,
+            "experience": 7,
+            "rating": 4.6,
+            "bio": "Sophia is a compassionate therapist specializing in anxiety disorders and stress management. With 7 years of experience, she provides evidence-based therapies to help individuals overcome their fears and worries. Sophia believes in empowering her clients with practical tools and coping strategies to navigate life's challenges.",
+            "specialities": [
+                "Clinical Psychology",
+                "Anxiety Disorders",
+                "Stress Management"
+            ],
+            "profile_image": "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+            "location": "Portharcourt, Nigeria",
+            "category": "Clinical Psychology"
+        },
+        {
+            "id": "10",
+            "firstname": "David",
+            "lastname": "Okon",
+            "charge_per_hour": 6500,
+            "patients": 80,
+            "experience": 8,
+            "rating": 4.9,
+            "bio": "David is a dedicated therapist specializing in trauma counseling and post-traumatic stress disorder (PTSD). With 8 years of experience, he has helped numerous individuals overcome their past traumas and regain control of their lives. David provides a safe and empathetic space for his clients to explore their experiences and work towards healing.",
+            "specialities": [
+                "Trauma Counsellor",
+                "Post-Traumatic Stress Disorder"
+            ],
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/03/02/88/46/1000_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg",
+            "location": "Abuja, Nigeria",
+            "category": "Trauma Counsellor"
+        },
+        {
+            "id": "11",
+            "firstname": "Emma",
+            "lastname": "Okafor",
+            "charge_per_hour": 8000,
+            "patients": 55,
+            "experience": 5,
+            "rating": 4.3,
+            "bio": "Emma is a dedicated clinical psychologist with a focus on depression and mood disorders. With 5 years of experience, she utilizes evidence-based therapies to help individuals manage their symptoms and improve their quality of life. Emma is committed to providing compassionate and personalized care to each of her clients.",
+            "specialities": [
+                "Clinical Psychology",
+                "Depression",
+                "Mood Disorders"
+            ],
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+            "location": "Lagos, Nigeria",
+            "category": "Clinical Psychology"
+        },
+        {
+            "id": "12",
+            "firstname": "James",
+            "lastname": "Adeleke",
+            "charge_per_hour": 7500,
+            "patients": 65,
+            "experience": 6,
+            "rating": 4.7,
+            "bio": "James is a compassionate marriage counselor with a passion for helping couples strengthen their relationships. With 6 years of experience, he specializes in communication skills, conflict resolution, and intimacy issues. James provides a supportive and non-judgmental environment where couples can explore their concerns and find solutions.",
+            "specialities": [
+                "Marriage Counsellor",
+                "Relationship Counseling",
+                "Intimacy Issues"
+            ],
+            "profile_image": "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+            "location": "Portharcourt, Nigeria",
+            "category": "Marriage Counsellor"
+        },
+        {
+            "id": "13",
+            "firstname": "Sarah",
+            "lastname": "Ibrahim",
+            "charge_per_hour": 7000,
+            "patients": 70,
+            "experience": 7,
+            "rating": 4.5,
+            "bio": "Sarah is a dedicated trauma counselor specializing in helping individuals overcome past traumas and regain control of their lives. With 7 years of experience, she utilizes evidence-based therapies to provide support and healing. Sarah creates a safe and empathetic space for her clients to explore their experiences and work towards recovery.",
+            "specialities": [
+                "Trauma Counsellor",
+                "Post-Traumatic Stress Disorder"
+            ],
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/03/02/88/46/1000_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg",
+            "location": "Abuja, Nigeria",
+            "category": "Trauma Counsellor"
+        }
+    ],
+    "reviews": [
+        {
+            "id": "1",
+            "firstname": "Alice",
+            "lastname": "Johnson",
+            "review": "TerapiaMental has been a game-changer for me! It's incredibly user-friendly and offers a wide range of resources to support mental well-being. The guided meditation sessions have helped me manage my stress levels effectively. I highly recommend this app to anyone looking to prioritize their mental health.",
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+            "location": "Lagos, Nigeria"
+        },
+        {
+            "id": "2",
+            "firstname": "James",
+            "lastname": "Smith",
+            "review": "I've been using TerapiaMental for a few months now, and I'm impressed with the results! The cognitive-behavioral therapy exercises have helped me challenge negative thought patterns and improve my overall well-being. The app's interface is intuitive, making it easy to navigate. Kudos to the developers!",
+            "profile_image": "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+            "location": "Portharcourt, Nigeria"
+        },
+        {
+            "id": "3",
+            "firstname": "Sophia",
+            "lastname": "Williams",
+            "review": "TerapiaMental has become an essential part of my self-care routine. The mindfulness exercises have helped me stay grounded and present, especially during stressful times. I appreciate the variety of tools available, catering to different aspects of mental health. I'm grateful for this valuable resource!",
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/03/02/88/46/1000_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg",
+            "location": "Abuja, Nigeria"
+        },
+        {
+            "id": "4",
+            "firstname": "Ethan",
+            "lastname": "Okeke",
+            "review": "TerapiaMental has been a source of support and empowerment for me. As someone coping with trauma, finding healing and resilience was a journey, but this app made it more manageable. The trauma-focused resources and therapist-moderated forums provided me with a safe space to process my experiences and connect with others on similar paths. I'm grateful for the sense of community and understanding fostered by TerapiaMental.",
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+            "location": "Abuja, Nigeria"
+        },
+        {
+            "id": "5",
+            "firstname": "David",
+            "lastname": "Okon",
+            "review": "TerapiaMental has been instrumental in my journey towards better mental health. The journaling feature has allowed me to track my emotions and identify patterns, leading to greater self-awareness. I've also found the community support forums to be incredibly helpful in connecting with others who share similar experiences. Thank you for creating such a supportive platform!",
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+            "location": "Lagos, Nigeria"
+        },
+        {
+            "id": "6",
+            "firstname": "Emily",
+            "lastname": "Adams",
+            "review": "I can't say enough good things about TerapiaMental! The guided relaxation exercises have been a lifesaver for managing my anxiety. The app's personalized recommendations for coping strategies have been spot-on and have really helped me feel more in control of my mental health. I'm grateful to have such a valuable tool at my fingertips.",
+            "profile_image": "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+            "location": "Portharcourt, Nigeria"
+        },
+        {
+            "id": "7",
+            "firstname": "Daniel",
+            "lastname": "Smith",
+            "review": "As a therapist myself, I'm impressed with the depth and quality of resources available on TerapiaMental. It's evident that the developers have put a lot of thought into creating a comprehensive platform that addresses various aspects of mental health. I frequently recommend this app to my clients and colleagues. Keep up the excellent work!",
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/03/02/88/46/1000_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg",
+            "location": "Abuja, Nigeria"
+        },
+        {
+            "id": "8",
+            "firstname": "Grace",
+            "lastname": "Okafor",
+            "review": "TerapiaMental has exceeded my expectations! The therapist-matching feature helped me find a professional who perfectly suited my needs. The app's confidentiality and security measures also gave me peace of mind knowing that my information was protected. I've already recommended TerapiaMental to friends and family!",
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+            "location": "Lagos, Nigeria"
+        },
+        {
+            "id": "9",
+            "firstname": "John",
+            "lastname": "Okon",
+            "review": "I've tried several mental health apps before, but TerapiaMental stands out for its user-friendly interface and comprehensive content. The daily affirmations and mood tracking features have been incredibly helpful in maintaining my emotional well-being. I appreciate the effort put into making this app accessible and inclusive for all users.",
+            "profile_image": "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+            "location": "Portharcourt, Nigeria"
+        },
+        {
+            "id": "10",
+            "firstname": "Sarah",
+            "lastname": "Adeleke",
+            "review": "TerapiaMental has become an essential part of my mental health toolkit. The breathing exercises and mindfulness meditations have helped me manage my stress levels and find moments of peace amidst chaos. I'm grateful for the positive impact this app has had on my life and well-being. Highly recommended!",
+            "profile_image": "https://as1.ftcdn.net/v2/jpg/03/02/88/46/1000_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg",
+            "location": "Abuja, Nigeria"
+        }
+    ]
+}

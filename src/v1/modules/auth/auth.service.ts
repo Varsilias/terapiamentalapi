@@ -42,9 +42,7 @@ export const signUp = async (payload: ISignUpDto) => {
 
 export const signIn = async (payload: ISignInDto) => {
   const { email, password } = payload;
-  const userExists = (await UserRepository.findOne({
-    where: { email },
-  })) as UserEntity;
+  const userExists = await UserRepository.findUserWithPasswordAndSalt(email);
 
   if (!userExists) {
     return {

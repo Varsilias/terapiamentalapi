@@ -26,7 +26,11 @@ export const signIn = async (req: Request, res: Response) => {
     const payload = { ...req.body } as ISignInDto;
     const { status, message, data, statusCode } = await AuthService.signIn(payload);
     return res.status(statusCode).json({ status, message, data });
-  } catch (error) {
+  } catch (error: any) {
+    logger.error(
+      `[TerapiaMentalException] - [ExceptionHandler] - [auth.controller.signUp]: ${error.message}`,
+    );
+
     return res
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
       .json({ status: false, message: "Unable to resolve request at this time" });
@@ -38,7 +42,11 @@ export const getNewAccessToken = async (req: Request, res: Response) => {
     const payload = { ...req.body } as IRefreshTokenDto;
     const { status, message, data, statusCode } = await AuthService.generateNewAccessToken(payload);
     return res.status(statusCode).json({ status, message, data });
-  } catch (error) {
+  } catch (error: any) {
+    logger.error(
+      `[TerapiaMentalException] - [ExceptionHandler] - [auth.controller.signUp]: ${error.message}`,
+    );
+
     return res
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
       .json({ status: false, message: "Unable to resolve request at this time" });
