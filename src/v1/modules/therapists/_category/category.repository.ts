@@ -1,14 +1,12 @@
 import { AppDataSource } from "../../../../database/sql";
-import { AppReviewEntity } from "../entities/app-reviews.entity";
+import { CategoryEntity } from "./category.entity";
 
-export const AppReviewRepository = AppDataSource.getRepository(AppReviewEntity).extend({
+export const CategoryRepository = AppDataSource.getRepository(CategoryEntity).extend({
   async getPaginated(page: number, perPage: number, skip: number) {
     const totalRecords = await this.count();
     const totalPages = Math.ceil(totalRecords / perPage);
-    const data = await this.createQueryBuilder("review")
-      .leftJoinAndSelect("review.user", "user")
-      .where("review.deleted_at IS NULL")
-      .orderBy("review.created_at", "DESC")
+    const data = await this.createQueryBuilder("category")
+      .where("category.deleted_at IS NULL")
       .skip(skip)
       .take(perPage)
       .getMany();

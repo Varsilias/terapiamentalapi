@@ -3,6 +3,7 @@ import { Column, Entity, OneToMany } from "typeorm";
 import { GenderEnum } from "../types";
 import { UserChoiceEntity } from "../../onboarding/entites/user-choice.entity";
 import { AppReviewEntity } from "../../app-reviews/entities/app-reviews.entity";
+import { ReviewEntity } from "../../therapists/_review/review.entity";
 
 @Entity({ name: "users" })
 export class UserEntity extends BaseEntity<UserEntity> {
@@ -72,7 +73,12 @@ export class UserEntity extends BaseEntity<UserEntity> {
   @OneToMany(() => AppReviewEntity, (review) => review.user, {
     cascade: ["remove"], // we are using remove because we are limited in storage
   })
-  app_review!: AppReviewEntity[];
+  app_reviews!: AppReviewEntity[];
+
+  @OneToMany(() => ReviewEntity, (review) => review.user, {
+    cascade: ["remove"], // we are using remove because we are limited in storage
+  })
+  therapist_reviews!: ReviewEntity[];
 
   sanitize() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,7 +1,7 @@
 import { BaseEntity } from "../../../../common/base-entity";
 import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { OptionEntity } from "./option.entity";
-import { UserEntity } from "../../auth/user/user.entity";
+import { UserEntity } from "../../auth/_user/user.entity";
 
 @Entity({ name: "user_choices" })
 export class UserChoiceEntity extends BaseEntity<UserChoiceEntity> {

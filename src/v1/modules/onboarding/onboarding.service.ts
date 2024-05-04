@@ -1,8 +1,8 @@
 import { logger } from "../../../config/logger.config";
 import { AppDataSource } from "../../../database/sql";
 import { HttpStatus } from "../../../enums";
-import { UserEntity } from "../auth/user/user.entity";
-import { UserRepository } from "../auth/user/user.repository";
+import { UserEntity } from "../auth/_user/user.entity";
+import { UserRepository } from "../auth/_user/user.repository";
 import { OptionRepository } from "./repositories/option.repository";
 import { StepRepository } from "./repositories/step.repository";
 import { UserChoiceRepository } from "./repositories/user-choice.repository";

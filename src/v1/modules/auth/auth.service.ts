@@ -1,7 +1,7 @@
 import { IRefreshTokenDto, ISignInDto, ISignUpDto } from "./types";
 import { HttpStatus } from "../../../enums";
-import { UserRepository } from "./user/user.repository";
-import { UserEntity } from "./user/user.entity";
+import { UserRepository } from "./_user/user.repository";
+import { UserEntity } from "./_user/user.entity";
 import crypto from "crypto";
 import * as UtilService from "./utils.service";
 import * as JwtService from "./jwt.service";
