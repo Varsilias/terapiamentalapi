@@ -3,6 +3,7 @@ import { BaseEntity } from "../../../common/base-entity";
 import { CategoryEntity } from "./_category/category.entity";
 import { SpecialityEntity } from "./_speciality/specialities.entity";
 import { ReviewEntity } from "./_review/review.entity";
+import { RatingEntity } from "./_rating/rating.entity";
 
 @Entity({ name: "therapists" })
 export class TherapistEntity extends BaseEntity<TherapistEntity> {
@@ -42,4 +43,9 @@ export class TherapistEntity extends BaseEntity<TherapistEntity> {
     cascade: ["remove"], // we are using remove because we are limited in storage
   })
   reviews!: ReviewEntity[];
+
+  @OneToMany(() => RatingEntity, (rating) => rating.therapist, {
+    cascade: ["remove"], // we are using remove because we are limited in storage
+  })
+  ratings!: RatingEntity[];
 }

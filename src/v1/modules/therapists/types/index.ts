@@ -32,3 +32,8 @@ export interface ICreateReviewDto {
   user_id: number;
   therapist_id: number;
 }
+
+export interface ICreateRatingDto {
+  value: number;
+  therapist_id: number;
+}

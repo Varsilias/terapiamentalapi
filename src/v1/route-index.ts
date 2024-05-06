@@ -7,6 +7,7 @@ import { categoryRouter } from "./modules/therapists/_category/category.route";
 import { specialityRouter } from "./modules/therapists/_speciality/speciality.route";
 import { therapistRouter } from "./modules/therapists/therapist.route";
 import { reviewRouter } from "./modules/therapists/_review/review.route";
+import { ratingRouter } from "./modules/therapists/_rating/rating.route";
 
 const router = Router();
 
@@ -22,5 +23,6 @@ router.use("/category", categoryRouter);
 router.use("/speciality", specialityRouter);
 router.use("/therapist", therapistRouter);
 router.use("/review", reviewRouter);
+router.use("/rating", ratingRouter);
 
 export const v1Routes = router;

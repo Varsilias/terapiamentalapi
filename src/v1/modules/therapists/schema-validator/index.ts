@@ -179,3 +179,30 @@ export const GetReviewSchema = z.object({
     })
     .positive("Therapist ID must be a positive integer"),
 });
+
+export const CreateRatingSchema = z.object({
+  value: z.coerce
+    .number({
+      required_error: "Therapist ID is required",
+      invalid_type_error: "Therapist ID must be a number",
+    })
+    .positive("Therapist ID must be a positive integer")
+    .max(5, "Can not be more than 5"),
+
+  therapist_id: z.coerce
+    .number({
+      required_error: "Therapist ID is required",
+      invalid_type_error: "Therapist ID must be a number",
+    })
+    .positive("Therapist ID must be a positive integer")
+    .max(5, "Can not be more than 5"),
+});
+
+export const GetRatingSchema = z.object({
+  therapist_id: z.coerce
+    .number({
+      required_error: "Therapist ID is required",
+      invalid_type_error: "Therapist ID must be a number",
+    })
+    .positive("Therapist ID must be a positive integer"),
+});
