@@ -4,6 +4,7 @@ import { GenderEnum } from "../types";
 import { UserChoiceEntity } from "../../onboarding/entites/user-choice.entity";
 import { AppReviewEntity } from "../../app-reviews/entities/app-reviews.entity";
 import { ReviewEntity } from "../../therapists/_review/review.entity";
+import { NotificationEntity } from "../../notification/notification.entity";
 
 @Entity({ name: "users" })
 export class UserEntity extends BaseEntity<UserEntity> {
@@ -79,6 +80,11 @@ export class UserEntity extends BaseEntity<UserEntity> {
     cascade: ["remove"], // we are using remove because we are limited in storage
   })
   therapist_reviews!: ReviewEntity[];
+
+  @OneToMany(() => NotificationEntity, (notification) => notification.user, {
+    cascade: ["remove"], // we are using remove because we are limited in storage
+  })
+  notifications!: NotificationEntity[];
 
   sanitize() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -8,11 +8,14 @@ import { specialityRouter } from "./modules/therapists/_speciality/speciality.ro
 import { therapistRouter } from "./modules/therapists/therapist.route";
 import { reviewRouter } from "./modules/therapists/_review/review.route";
 import { ratingRouter } from "./modules/therapists/_rating/rating.route";
+import { notificationRouter } from "./modules/notification/notification.route";
 
 const router = Router();
 
 router.use((req, res, next) => {
-  logger.info(`${process.env.ENV} - ${new Date()} - ${req.originalUrl}`);
+  logger.info(
+    `${process.env.ENV} - ${new Date()} - ${req.method.toUpperCase()} ${req.originalUrl}`,
+  );
   next();
 });
 
@@ -24,5 +27,6 @@ router.use("/speciality", specialityRouter);
 router.use("/therapist", therapistRouter);
 router.use("/review", reviewRouter);
 router.use("/rating", ratingRouter);
+router.use("/notification", notificationRouter);
 
 export const v1Routes = router;
